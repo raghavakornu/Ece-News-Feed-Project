@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECE//DAILY — Signal Brief</title>
+<link rel="icon" type="image/png" href="1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="wordmark" style="align-items: center;">
+      <img src="1.png" alt="ECE Daily Brief Logo" style="height: 28px; margin-right: 10px; border-radius: 4px;">
+      <span class="wordmark__text">ECE<span class="wordmark__slash">//</span>DAILY</span>
+    </div>
+    <nav class="ticker" aria-label="Categories">
+      <button class="ticker__item is-active" data-cat="ALL">ALL</button>
+      <button class="ticker__item" data-cat="SEMI">SEMICONDUCTORS</button>
+      <button class="ticker__item" data-cat="VLSI">VLSI</button>
+      <button class="ticker__item" data-cat="POWER">POWER</button>
+      <button class="ticker__item" data-cat="RF">RF / WIRELESS</button>
+      <button class="ticker__item" data-cat="EMBED">EMBEDDED</button>
+      <button class="ticker__item" data-cat="DSP">SIGNAL PROC</button>
+    </nav>
+    <div class="readout">
+      <span class="readout__label">LOCAL TIME</span>
+      <span class="readout__value" id="clock">--:--:--</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="scope" aria-labelledby="brief-heading">
+    <div class="scope__grid" aria-hidden="true"></div>
+    <svg class="scope__trace" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path id="tracePath" d="M0,60 Q150,10 300,60 T600,60 T900,60 T1200,60" fill="none" stroke="var(--trace)" stroke-width="2"/>
+    </svg>
+    <div class="scope__content">
+      <p class="eyebrow" id="brief-date">AWAITING SIGNAL LOCK…</p>
+      <h1 id="brief-heading">Today's Signal Brief</h1>
+      <p class="scope__summary" id="briefText" style="font-style: italic; min-height: 50px;">
+        Warming up the vacuum tubes and fetching the latest signals...
+      </p>
+      <div class="scope__meta">
+        <span id="briefSourceCount">— sources</span>
+        <span class="dot">•</span>
+        <span id="briefStoryCount">— stories analyzed</span>
+        <span class="dot">•</span>
+        <span>Auto-Curated Client-Side Feed</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="feed" aria-label="News feed">
+    <div class="feed__header">
+      <h2>Latest Signals</h2>
+      <button id="refreshBtn" class="refresh-btn" title="Re-fetch now">↻ Refresh</button>
+    </div>
+    <div class="feed__grid" id="feedGrid">
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p>Sources: IEEE Spectrum · EE Times · Semiconductor Engineering. RSS parsing powered by pure client-side JavaScript.</p>
+    <p class="footer__credit">Built for daily ECE reading. Standard Reader Interface. Cyberpunk Glitch &amp; Anime.js Enhanced.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
